@@ -10,3 +10,22 @@ h1{
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.8);
 }
+.carousel-image{
+  object-fit: contain;
+  width: 67vh;
+  height: 67vh;
+}  
+.carousel-control-next-icon{
+  background-color: red;
+  color: cyan;
+  border-radius: 50%;
+  border: solid;
+  border-color: red;
+}   
+.carousel-control-prev-icon{
+  background-color: red;
+  color: cyan;
+  border-radius: 50%;
+  border: solid;
+  border-color: red;
+}
