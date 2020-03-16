@@ -1,10 +1,13 @@
 #modal{
   background-color: rgba(0, 0, 0, 0.95);
   color: green;
-  text-align: center;
+  text-align: left;
   border: 1px solid green;
   box-shadow: 0px 0px 4px #00FF00;
-  padding: 2vh;
+  padding-right: 20%;
+  padding-left: 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   margin: 2vh;
   overflow: auto;
   height: 50vh;
@@ -29,9 +32,15 @@
   box-shadow: 0px 0px 4px #00FF00;
 }
 ul{
-  text-align: center;
   list-style-position: inside;
-  transform: translate(-10%,0%);
+}
+#project-link{
+  font-size: 2rem;
+  font-weight: bold;
+  color: green;
+}
+#project-link:hover{
+  color: rgba(0, 255, 100, 1);
 }
 .carousel-image{
   object-fit: contain;
@@ -44,18 +53,22 @@ ul{
   opacity: 1;
 }
 .carousel-control-next-icon{
-  background-color: red;
+  background-color: green;
   color: cyan;
   border-radius: 50%;
   border: solid;
-  border-color: red;
+  border-color: green;
+  width: 2rem;
+  height: 2rem;
 }   
 .carousel-control-prev-icon{
-  background-color: red;
+  background-color: green;
   color: cyan;
   border-radius: 50%;
   border: solid;
-  border-color: red;
+  border-color: green;
+  width: 2rem;
+  height: 2rem;
 }
 #title{
   margin: 5vh;
@@ -64,7 +77,7 @@ ul{
 #name{
   font-size: 5rem;
   font-weight: bold;
-  color: red;
+  color: green;
 }
 #role{
   font-size: 3rem;
@@ -72,4 +85,11 @@ ul{
 }
 body{
   background-color: rgba(20,20,20,1);
+}
+#caption{
+  text-shadow: 0px 0px 8px rgba(0,0,0,1);
+  background-color: rgba(0,0,0,0.1);
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 10px;
 }
