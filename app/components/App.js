@@ -11,8 +11,8 @@ const CarouselConfig = [
     image_alt: "Saving Ever After",
     title: "Saving Ever After",
     description: "A story about a little girl who escapes into another realm to save her home.",
-    features: ['a', 'b', 'c'],
-    techStack: [1, 2, 3],
+    features: ['c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'],
+    techStack: [3, 3, 3],
     blurb: "A paragraph."
   },
   {
@@ -20,7 +20,8 @@ const CarouselConfig = [
     image_alt: "Mars",
     title: "Mars",
     description: "The red planet",
-    techStack: [1, 2, 3],
+    features: ['a', 'a', 'a'],
+    techStack: [1, 1, 1],
     blurb: "A paragraph."
   },
   {
@@ -28,21 +29,24 @@ const CarouselConfig = [
     image_alt: "Gabriella Romero",
     title: "Gabriella Romero",
     description: "The Mother of Lies",
-    techStack: [1, 2, 3],
+    features: ['b', 'b', 'b'],
+    techStack: [2, 2, 2],
     blurb: "A paragraph."
   },
 ]
 
-const CarouselItem = (config, changeState, index) => {
+//Not sure why, but if declare CarouselItem as a class that extends React.component, it would cause the carousel items to have zero dimensions (the elements would still be present with correct text)
+const CarouselItem = (config, changeState, index, state) => {
   return(
-    <Carousel.Item className="carousel-item" id={`item${index}`}>  
+    <Carousel.Item id={`item${index}`}>  
       <img
         className="d-block w-100 carousel-image"
         src={config.image_url}
         alt={config.image_alt}
-        onClick={() => { changeState({modal: true, modalConfig: config}) }}
+        onClick={() => { changeState({modal: config}) }}
       />
       <Carousel.Caption>
+        <Modal state={state} changeState={changeState} config={config} />
         <h3>{config.title}</h3>
         <p>{config.description}</p>
       </Carousel.Caption>
@@ -52,14 +56,15 @@ const CarouselItem = (config, changeState, index) => {
 
 class Modal extends React.Component {  
   render(){
-    if(this.props.state.modal){
+    if(this.props.state.modal == this.props.config){
+      console.log(this.props.config);
       return(
         <div id='modal'>
           <h3>Features</h3>
           <br></br>
           <ul>
             {
-              this.props.state.modalConfig.features.map((feature)=>{
+              this.props.config.features.map((feature)=>{
                 return(
                   <li>{feature}</li>
                 );
@@ -67,11 +72,11 @@ class Modal extends React.Component {
             }
           </ul>
           <br></br>
-          <h3>Tech stack</h3>
+          <h3>Tech Stack</h3>
           <br></br>
           <ul>
             {
-              this.props.state.modalConfig.techStack.map((tech)=>{
+              this.props.config.techStack.map((tech)=>{
                 return(
                   <li>{tech}</li>
                 );
@@ -79,7 +84,7 @@ class Modal extends React.Component {
             }
           </ul>
           <br></br>
-          <p>{this.props.state.modalConfig.blurb}</p>
+          <p>{this.props.config.blurb}</p>
           <br></br>
           <button
             id='close-modal'
@@ -118,12 +123,10 @@ class Portfolio extends React.Component {
           <h2 id="role">Software Engineer</h2>    
         </div>
         
-        <Modal state={this.state} changeState={this.changeState} />
-        
         <Carousel id="carousel" interval={null}>
           {
             CarouselConfig.map((config, i)=>{
-              return CarouselItem(config, this.changeState, i);            
+              return CarouselItem(config, this.changeState, i, this.state);  
             })  
           }
         </Carousel>
