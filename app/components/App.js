@@ -10,19 +10,26 @@ const CarouselConfig = [
     image_url: "https://cdn.glitch.com/3f1b8d60-72dd-4749-b52a-b1d788645b26%2FFairy%20Tale%20Land.jpg?v=1567369572073",
     image_alt: "Saving Ever After",
     title: "Saving Ever After",
-    description: "A story about a little girl who escapes into another realm to save her home."
+    description: "A story about a little girl who escapes into another realm to save her home.",
+    features: ['a', 'b', 'c'],
+    techStack: [1, 2, 3],
+    blurb: "A paragraph."
   },
   {
     image_url: "https://cdn.glitch.com/3f1b8d60-72dd-4749-b52a-b1d788645b26%2FMars.jpg?v=1566083149958",
     image_alt: "Mars",
     title: "Mars",
-    description: "The red planet"
+    description: "The red planet",
+    techStack: [1, 2, 3],
+    blurb: "A paragraph."
   },
   {
     image_url: "https://cdn.glitch.com/3f1b8d60-72dd-4749-b52a-b1d788645b26%2FGabriella%20Colour.jpg?v=1567393885892",
     image_alt: "Gabriella Romero",
     title: "Gabriella Romero",
-    description: "The Mother of Lies"
+    description: "The Mother of Lies",
+    techStack: [1, 2, 3],
+    blurb: "A paragraph."
   },
 ]
 
@@ -33,7 +40,7 @@ const CarouselItem = (config, changeState, index) => {
         className="d-block w-100 carousel-image"
         src={config.image_url}
         alt={config.image_alt}
-        onClick={() => { changeState({modal: true}) }}
+        onClick={() => { changeState({modal: true, modalConfig: config}) }}
       />
       <Carousel.Caption>
         <h3>{config.title}</h3>
@@ -43,24 +50,57 @@ const CarouselItem = (config, changeState, index) => {
   );
 }
 
-const Modal = (modal, changeState) => {
-  if(modal){
-    return(
-      <div id='modal'>
-        I am the modal
-        <button onClick={()=>{ changeState({modal: false}) }}>
-          Close the modal
-        </button>
-      </div>
-    );
+class Modal extends React.Component {  
+  render(){
+    if(this.props.state.modal){
+      return(
+        <div id='modal'>
+          <h3>Features</h3>
+          <br></br>
+          <ul>
+            {
+              this.props.state.modalConfig.features.map((feature)=>{
+                return(
+                  <li>{feature}</li>
+                );
+              })
+            }
+          </ul>
+          <br></br>
+          <h3>Tech stack</h3>
+          <br></br>
+          <ul>
+            {
+              this.props.state.modalConfig.techStack.map((tech)=>{
+                return(
+                  <li>{tech}</li>
+                );
+              })
+            }
+          </ul>
+          <br></br>
+          <p>{this.props.state.modalConfig.blurb}</p>
+          <br></br>
+          <button
+            id='close-modal'
+            onClick={()=>{ this.props.changeState({modal: false}) }} 
+          >
+            Close
+          </button>
+        </div>
+      );  
+    } else {
+      return null;
+    }
   }
-}
+} 
 
 class Portfolio extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      modal: false
+      modal: false,
+      modalConfig: null
     };
     this.changeState = this.changeState.bind(this);
   }
@@ -74,11 +114,11 @@ class Portfolio extends React.Component {
       <div>
         
         <div id="title">
-          <h1>Billy Bob</h1>
-          <h2>Software Engineer</h2>    
+          <h1 id="name">Billy Bob</h1>
+          <h2 id="role">Software Engineer</h2>    
         </div>
         
-        {Modal(this.state.modal, this.changeState)}
+        <Modal state={this.state} changeState={this.changeState} />
         
         <Carousel id="carousel" interval={null}>
           {
