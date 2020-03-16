@@ -1,18 +1,48 @@
 #modal{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.95);
+  color: green;
+  text-align: center;
+  border: 1px solid green;
+  box-shadow: 0px 0px 4px #00FF00;
+  padding: 2vh;
+  margin: 2vh;
+  overflow: auto;
+  height: 50vh;
+}
+#modal::-webkit-scrollbar{
+  background-color: cyan;
+  width: 1px;
+}
+#modal::-webkit-scrollbar-thumb{
+  background-color: green;
+}
+#close-modal{
+  background-color: rgba(0, 0, 0, 0.95);
+  color: green;
+  border-color: black;
+  box-shadow: 0px 0px 2px #00FF00;
+}
+#close-modal:hover{
+  background-color: rgba(0, 0, 0, 1);
+  color: green;
+  text-shadow: 0px 0px #00FF00;
+  box-shadow: 0px 0px 4px #00FF00;
+}
+ul{
+  text-align: center;
+  list-style-position: inside;
+  transform: translate(-10%,0%);
 }
 .carousel-image{
   object-fit: contain;
   width: 67vh;
   height: 67vh;
   cursor: pointer;
+  opacity: 0.8;
 }  
+.carousel-image:hover{
+  opacity: 1;
+}
 .carousel-control-next-icon{
   background-color: red;
   color: cyan;
