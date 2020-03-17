@@ -10,7 +10,7 @@
   padding-bottom: 5%;
   margin: 2vh;
   overflow: auto;
-  height: 50vh;
+  height: 40vh;
 }
 #modal::-webkit-scrollbar{
   background-color: cyan;
@@ -44,8 +44,7 @@ ul{
 }
 .carousel-image{
   object-fit: contain;
-  width: 67vh;
-  height: 67vh;
+  height: 60vh;
   cursor: pointer;
   opacity: 0.8;
 }  
@@ -92,4 +91,25 @@ body{
   margin-left: 30%;
   margin-right: 30%;
   padding: 10px;
+}
+.headline{
+  font-size: 3.5rem;
+  text-align: center;
+  background-color: green;
+  padding: 0.5rem;
+}
+.carousel{
+  margin-bottom: 8rem;
+}
+.contact-links{
+  font-size: 3rem;
+  color: white;
+}
+.contact-links:hover{
+  color: white;
+  text-shadow: 0px 0px 5px rgba(0,255,0,1);
+}
+#contact{
+  margin-bottom: 8rem;
+  text-align: center;
 }
