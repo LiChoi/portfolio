@@ -1,3 +1,12 @@
+#canvas{
+  background-color: rgba(0, 0, 0, 0.80);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+} 
 #modal{
   background-color: rgba(0, 0, 0, 0.95);
   color: green;
@@ -12,6 +21,7 @@
   top: 30%;
   right: 25vw;
   width: 50vw;
+  z-index: 1001;
 }
 #modal::-webkit-scrollbar{
   background-color: cyan;
@@ -35,12 +45,12 @@
 ul{
   list-style-position: inside;
 }
-#project-link{
+.project-link{
   font-size: 2rem;
   font-weight: bold;
   color: green;
 }
-#project-link:hover{
+.project-link:hover{
   color: rgba(0, 255, 100, 1);
 }
 .carousel-image{
@@ -75,12 +85,12 @@ ul{
   text-align: center;
 }
 #name{
-  font-size: 5rem;
+  font-size: 8vh;
   font-weight: bold;
   color: green;
 }
 #role{
-  font-size: 3rem;
+  font-size: 5vh;
   color: white;
 }
 body{
@@ -94,7 +104,7 @@ body{
   padding: 10px;
 }
 .headline{
-  font-size: 3.5rem;
+  font-size: 5vh;
   text-align: center;
   background-color: green;
   padding: 0.5rem;
@@ -103,7 +113,7 @@ body{
   margin-bottom: 8rem;
 }
 .contact-links{
-  font-size: 3rem;
+  font-size: 5vh;
   color: white;
 }
 .contact-links:hover{

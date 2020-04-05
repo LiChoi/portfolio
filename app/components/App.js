@@ -26,7 +26,20 @@ const CarouselConfig = [
       "Libraries used: react-native-camera, react-native-fs (to access cached data on phone), react-native-mail, realm (to handle persistent storage on phone)"
     ],
     blurb: "A useful app for anyone who takes multiple chronic medications.",
-    link: "https://play.google.com/store/apps/details?id=com.emma20191215",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://play.google.com/store/apps/details?id=com.emma20191215"
+      },
+      {
+        linkText: "Click here to view mobile app repo",
+        link: "https://github.com/LiChoi/emma"
+      },
+      {
+        linkText: "Click here to view server repo",
+        link: "https://github.com/LiChoi/emma_server"
+      },
+    ],
     featured: true
   },
   {
@@ -49,7 +62,16 @@ const CarouselConfig = [
       "Libraries used: body-parser, cors, nodemailer (to handle emailer), passport (to handle login credentials), passport-local, express-session, bcrypt (to encrypt saved data)"
     ],
     blurb: "My first full-stack project",
-    link: "https://red-eden.glitch.me/",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://red-eden.glitch.me/"
+      },
+      {
+        linkText: "Click here to view repo",
+        link: "https://github.com/LiChoi/rededen"
+      }
+    ],
     featured: true
   },
   {
@@ -68,7 +90,12 @@ const CarouselConfig = [
       "Front-end framework: React"
     ],
     blurb: "A fun project to build!",
-    link: "https://codepen.io/LiChoi/full/xvORPL",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://codepen.io/LiChoi/full/xvORPL"
+      }
+    ],
     featured: true
   },
   {
@@ -89,14 +116,19 @@ const CarouselConfig = [
       "Libraries used: SCSS"
     ],
     blurb: "The calculator looks pretty cool, if I do say so myself.",
-    link: "https://codepen.io/LiChoi/full/WVwGdL",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://codepen.io/LiChoi/full/WVwGdL"
+      }
+    ],
     featured: false
   },
   {
     image_url: "https://cdn.glitch.com/5675e050-6473-484a-ab54-bd50c37e5996%2FUSMap.png?v=1584405476199",
     image_alt: "US Map",
     title: "Choropleth Map of USA",
-    description: "A choropleth map of US educational attainment using SVG",
+    description: "An SVG-generated choropleth map of US educational attainment",
     features: [
       'A choropleth map of US educational attainment by county',
       'Tool tip with more info appears when hovering over each country'
@@ -106,7 +138,12 @@ const CarouselConfig = [
       "Libraries used: d3, d3-geo-projection, d3-scale-chromatic, topojson"
     ],
     blurb: "Used API call to get the topojson data needed to draw the map, then color-coded each county based on another set of data.",
-    link: "https://codepen.io/LiChoi/full/Ymrjgq",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://codepen.io/LiChoi/full/Ymrjgq"
+      }
+    ],
     featured: false
   },
   {
@@ -124,7 +161,12 @@ const CarouselConfig = [
       "Libraries used: marked.js"
     ],
     blurb: "Looks like alien technology.",
-    link: "https://codepen.io/LiChoi/full/XvXbvx",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://codepen.io/LiChoi/full/XvXbvx"
+      }
+    ],
     featured: false
   },
   {
@@ -142,7 +184,57 @@ const CarouselConfig = [
       "Libraries used: SCSS"
     ],
     blurb: "Make sick beats with this thing!",
-    link: "https://codepen.io/LiChoi/full/Voeqzz",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://codepen.io/LiChoi/full/Voeqzz"
+      }
+    ],
+    featured: false
+  },
+  {
+    image_url: "https://cdn.glitch.com/5675e050-6473-484a-ab54-bd50c37e5996%2FHeatMap.png?v=1586103385981",
+    image_alt: "Heat Map",
+    title: "Heat Map",
+    description: "SVG-generated bar graph of average global temperature 1760-Present",
+    features: [
+      'Months on Y-axis, years since 1760 on X-axis',
+      "Color-coded based on difference from the average overall temperature in that time span"
+    ],
+    techStack: [
+      "Programming languages: Javascript, HTML/CSS",
+      "Libraries used: d3, d3-scale-chromatic"
+    ],
+    blurb: "Average Global Temperature 1760-Present",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://codepen.io/LiChoi/full/gVgMqJ"
+      }
+    ],
+    featured: false
+  },
+  {
+    image_url: "https://cdn.glitch.com/5675e050-6473-484a-ab54-bd50c37e5996%2FTreeMap.png?v=1586104400364",
+    image_alt: "Tree Map",
+    title: "Tree Map",
+    description: "SVG-generated tree map showing best-selling video games per platform",
+    features: [
+      'Tree map: size of blocks correspond to # of sales',
+      "Color-coded based on platform",
+      "You can mouse over each block to get more info"
+    ],
+    techStack: [
+      "Programming languages: Javascript, HTML/CSS",
+      "Libraries used: d3, d3-scale-chromatic"
+    ],
+    blurb: "SVG-generated tree map showing best-selling video games per platform",
+    links: [
+      {
+        linkText: "Click here to view project",
+        link: "https://codepen.io/LiChoi/full/LwzXVM"
+      }
+    ],
     featured: false
   },
 ]
@@ -158,7 +250,6 @@ const CarouselItem = (config, changeState, index, state) => {
         onClick={() => { changeState({modal: config}) }}
       />
       <Carousel.Caption>
-        <Modal state={state} changeState={changeState} config={config} />
         <div id='caption'>
           <h3>{config.title}</h3>
           <p>{config.description}</p>
@@ -170,47 +261,60 @@ const CarouselItem = (config, changeState, index, state) => {
 
 class Modal extends React.Component {  
   render(){
-    if(this.props.state.modal == this.props.config){
-      console.log(this.props.config);
+    if(this.props.state.modal){
+      document.body.style.overflow = "hidden";
       return(
-        <div id='modal'>
-          <h1>{this.props.config.title}</h1>
-          <br></br>
-          <h3>Features</h3>
-          <br></br>
-          <ul>
+        <div id='canvas'>
+          <div id='modal'>
+            <h1>{this.props.state.modal.title}</h1>
+            <br></br>
+            <p>{this.props.state.modal.blurb}</p>
+            <br></br>
+            <h3>Features</h3>
+            <br></br>
+            <ul>
+              {
+                this.props.state.modal.features.map((feature)=>{
+                  return(
+                    <li>{feature}</li>
+                  );
+                })
+              }
+            </ul>
+            <br></br>
+            <h3>Tech Stack</h3>
+            <br></br>
+            <ul>
+              {
+                this.props.state.modal.techStack.map((tech)=>{
+                  return(
+                    <li>{tech}</li>
+                  );
+                })
+              }
+            </ul>
+            <br></br>
             {
-              this.props.config.features.map((feature)=>{
+              this.props.state.modal.links.map((linkObject, i)=>{
                 return(
-                  <li>{feature}</li>
+                  <div>
+                    <a id={'project-link' + i} class='project-link' href={linkObject.link} target="_blank">{linkObject.linkText}</a>
+                  </div>
                 );
               })
             }
-          </ul>
-          <br></br>
-          <h3>Tech Stack</h3>
-          <br></br>
-          <ul>
-            {
-              this.props.config.techStack.map((tech)=>{
-                return(
-                  <li>{tech}</li>
-                );
-              })
-            }
-          </ul>
-          <br></br>
-          <a id='project-link' href={this.props.config.link} target="_blank">Click Here to View Project</a>
-          <br></br>
-          <br></br>
-          <p>{this.props.config.blurb}</p>
-          <br></br>
-          <button
-            id='close-modal'
-            onClick={()=>{ this.props.changeState({modal: false}) }} 
-          >
-            Close
-          </button>
+            <br></br>
+            <br></br>
+            <button
+              id='close-modal'
+              onClick={()=>{ 
+                this.props.changeState({modal: false});
+                document.body.style.overflow = "scroll";
+              }} 
+            >
+              Close
+            </button>
+          </div>
         </div>
       );  
     } else {
@@ -223,8 +327,7 @@ class Portfolio extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      modal: false,
-      modalConfig: null
+      modal: false
     };
     this.changeState = this.changeState.bind(this);
   }
@@ -236,6 +339,8 @@ class Portfolio extends React.Component {
   render() {
     return (
       <div>
+        
+        <Modal state={this.state} changeState={this.changeState} />
         
         <div id="title">
           <h1 id="name">Liming Choi</h1>
